@@ -16,11 +16,25 @@ export class ProductComponent implements OnInit {
     private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getProducts();
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["categoryId"]){
+        this.getProductsByCategory(params["categoryId"])
+      }
+      else{
+        this.getProducts()
+      }
+    })
   }
 
   getProducts() {
     this.productService.getProducts().subscribe(response=>{
+      this.products = response.data
+      this.dataLoaded = true;
+    })
+     
+  }
+  getProductsByCategory(categoryId:number) {
+    this.productService.getProductsByCategory(categoryId).subscribe(response=>{
       this.products = response.data
       this.dataLoaded = true;
     })
