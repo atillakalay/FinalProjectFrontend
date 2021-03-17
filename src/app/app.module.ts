@@ -14,6 +14,7 @@ import {BrowserAnimationsModule}from "@angular/platform-browser/animations"
 
 import{ToastrModule} from "ngx-toastr"
 import { from } from 'rxjs';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { from } from 'rxjs';
     CategoryComponent,
     NaviComponent,
     VatAddedPipe,
-    FilterPipePipe
+    FilterPipePipe,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
